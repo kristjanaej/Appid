@@ -1,0 +1,26 @@
+<ion-side-menus enable-menu-with-back-views="false" is-enabled="shouldLeftSideMenuBeEnabled()">>
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle=""></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="side-menu"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-stable">
+            <div class="title">Menu</div>
+        </ion-header-bar>
+        <ion-content padding="false" class="side-menu-left has-header">
+            <ion-list>
+                <ion-item ui-sref="menu.home" menu-close="">Home</ion-item>
+                <ion-item ui-sref="menu.flightLegs" menu-close="">Flight Legs</ion-item>
+                <ion-item ui-sref="menu.fleetList" menu-close="">Fleet list</ion-item>
+                <ion-item ui-sref="menu.employees" menu-close="">Employees</ion-item>
+                <ion-item ui-sref="menu.contacts" menu-close="">Contacts</ion-item>
+                <ion-item ui-sref="menu.myInfo" menu-close="">My Info</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=typeof title == 'undefined' ? 'Mechanic Maid' : title%></title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/datatables.min.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Mechanic Maid</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li <%- view.path.indexOf('home') >= 0 ? 'class="active"' : ''%> ><a href="/">Home</a></li>
+            <li <%- view.path.indexOf('aircraft') >= 0 ? 'class="active"' : ''%>><a href="/aircraft/list">Aircrafts</a></li>
+            <li <%- view.path.indexOf('flightleg') >= 0 ? 'class="active"' : ''%>><a href="/flightleg/list">Flight Legs</a></li>
+            <li <%- view.path.indexOf('contact') >= 0 ? 'class="active"' : ''%>><a href="/contact/list">Contacts</a></li>
+            <li <%- view.path.indexOf('employee') >= 0 ? 'class="active"' : ''%>><a href="/employee/list">Employees</a></li>
+            <li <%- view.path.indexOf('training') >= 0 ? 'class="active"' : ''%>><a href="/training/list">Training</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Log In</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+      <%- body %>
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <div class="col-sm-6 text-left">
+          <p>&copy; 2016 Hugbúnaðarverkefni 2.</p>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p>Hafrún, Pétur, Kristjana</p>
+        </div>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/datatables.min.js"></script>
+    <script src="/js/site.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

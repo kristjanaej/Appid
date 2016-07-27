@@ -1,0 +1,23 @@
+<ion-view title="{{ employee.name }}">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+      <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="getData()">
+      </ion-refresher>
+      <ion-card>
+		  <img src="http://lorempixel.com/100/100/people/{{employee.id}}"/>
+		  <ion-card-content>
+		    <h2 class="card-title">
+		      {{ employee.name }}
+		    </h2>
+		    <p>
+		      {{ employee.email }}
+		    </p>
+        <p>
+		      {{ employee.phone }}
+		    </p>
+		  </ion-card-content>
+		</ion-card>
+
+    </ion-content>
+</ion-view>
