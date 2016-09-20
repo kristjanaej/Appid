@@ -1,0 +1,14 @@
+<ion-view title="Arrivals">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+      <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="getData()">
+      </ion-refresher>
+      <ion-list>
+    		<ion-item ng-repeat="flight in flights">
+    			<h2>{{ flight.TailNumber }} - {{ flight.FromFltno }} - From: {{ flight.FromAirport }}</h2>
+    			<p>{{ flight.FromStatus }} - @Stand: {{ flight.ArrStand }} </p>
+    		</ion-item>
+    	</ion-list>
+    </ion-content>
+</ion-view>
