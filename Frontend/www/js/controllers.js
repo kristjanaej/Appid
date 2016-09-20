@@ -27,7 +27,7 @@ angular.module('app.controllers', [])
 .controller('flightLegsCtrl', function($scope, $http, $ionicPopup) {
 	$scope.flights = [];
 	$scope.getData = function() {
-    $http.get('http://fids.kefairport.is/api/flights').then(function(resp) {
+    $http.get('http://10.110.6.82:3333/api/arrdep/').then(function(resp) {
       $scope.flights = resp.data;
       $scope.$broadcast('scroll.refreshComplete');
       // For JSON responses, resp.data contains the result
@@ -36,7 +36,7 @@ angular.module('app.controllers', [])
       // err.status will contain the status code
   	  var alert =  $ionicPopup.alert({
   	   	title: 'Error',
-  	   	'template': 'Could not connect to flight schedule API'
+  	   	'template': 'Could not connect to flight schedule API' + err + ' ' + Object.keys(err)
   	  });
       $scope.$broadcast('scroll.refreshComplete');
     });
@@ -47,7 +47,7 @@ angular.module('app.controllers', [])
 .controller('fleetListCtrl', function($scope, $state, $stateParams, $http, $ionicPopup) {
 	$scope.fleetList = [];
   $scope.getData = function() {
-    $http.get('http://178.62.84.47:3000/aircraft').then(function(resp) {
+    $http.get('http://10.110.6.82:3333/api/fleet/').then(function(resp) {
       $scope.fleetList = resp.data;
       $scope.$broadcast('scroll.refreshComplete');
       // For JSON responses, resp.data contains the result
@@ -56,7 +56,7 @@ angular.module('app.controllers', [])
       // err.status will contain the status code
   	  var alert =  $ionicPopup.alert({
   	   	title: 'Error',
-  	   	'template': 'Could not connect to aircraft database API'
+  	   	'template': 'Could not connect to aircraft database API' 
       });
       $scope.$broadcast('scroll.refreshComplete');
     });
@@ -92,50 +92,6 @@ angular.module('app.controllers', [])
 	};
 })
 
-
-.controller('employeesCtrl', function($scope, EmployeeService, $state, $stateParams, $http, $ionicPopup) {
-	$scope.employees = [];
-  $scope.getData = function() {
-    $http.get('http://178.62.84.47:3000/employee').then(function(resp) {
-      // For JSON responses, resp.data contains the result
-      $scope.employees = resp.data;
-      $scope.$broadcast('scroll.refreshComplete');
-    }, function(err) {
-      // err.status will contain the status code
-  	  var alert =  $ionicPopup.alert({
-  	   	title: 'Error',
-  	   	'template': 'Could not connect to employee database API'
-  	  });
-      $scope.$broadcast('scroll.refreshComplete');
-    });
-  };
-
-  $scope.getData();
-
-	$scope.viewEmployee = function(employeeId){
-		$state.go('menu.employee', {employeeId: employeeId});
-	};
-})
-
-.controller('employeeCtrl', function($scope, EmployeeService, $stateParams, $http, $ionicPopup) {
-	$scope.employee = {};
-  $scope.getData = function() {
-    $http.get('http://178.62.84.47:3000/employee?id='+$stateParams.employeeId).then(function(resp) {
-      // For JSON responses, resp.data contains the result
-      $scope.employee = resp.data;
-      $scope.$broadcast('scroll.refreshComplete');
-    }, function(err) {
-      // err.status will contain the status code
-  	  var alert =  $ionicPopup.alert({
-  	   	title: 'Error',
-  	   	'template': 'Could not connect to employee database API'
-  	  });
-      $scope.$broadcast('scroll.refreshComplete');
-    });
-  };
-  $scope.getData();
-
-})
 
 .controller('contactsCtrl', function($scope, $http, $ionicPopup) {
   $scope.contacts = [];

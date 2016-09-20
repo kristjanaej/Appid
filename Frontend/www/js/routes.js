@@ -30,11 +30,21 @@ angular.module('app.routes', [])
     controller: 'loginCtrl'
   })
 
-  .state('menu.flightLegs', {
-    url: '/flight-legs',
+  .state('menu.arrivals', {
+    url: '/arrivals',
     views: {
       'side-menu': {
-        templateUrl: 'templates/flightLegs.html',
+        templateUrl: 'templates/arrivals.html',
+        controller: 'flightLegsCtrl'
+      }
+    }
+  })
+
+  .state('menu.departures', {
+    url: '/departures',
+    views: {
+      'side-menu': {
+        templateUrl: 'templates/departures.html',
         controller: 'flightLegsCtrl'
       }
     }
@@ -50,24 +60,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu.employees', {
-    url: '/employees',
-    views: {
-      'side-menu': {
-        templateUrl: 'templates/employees.html',
-        controller: 'employeesCtrl'
-      }
-    }
-  })
-  .state('menu.employee', {
-    url: '/employee/:employeeId',
-    views: {
-      'side-menu': {
-        templateUrl: 'templates/employee.html',
-        controller: 'employeeCtrl'
-      }
-    }
-  })
+
   .state('menu.aircraft', {
     url: '/employee/:aircraftId',
     views: {
